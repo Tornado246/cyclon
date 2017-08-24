@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<table border="1">
+		<tr>
+			<td>Codigo Empleado</td>
+			<td id="cod_empleado"></td>
+		</tr>
+		<tr>
+			<td>Nombre Empleado</td>
+			<td id="nombre_empleado"></td>
+		</tr>
+		<tr>
+			<td>Horas Extra</td>
+			<td id="hora_extra"></td>
+		</tr>
+		<tr>
+			<td colspan="2" id="resultado"></td>
+		</tr>
+	</table>
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+	<script language="javascript">
+		$(document).ready(function(){
+			var $sueldo_semanal,$sueldo_base_semanal,$impuesto_IMSS,$impuesto_renta,$sueldo_extra,$sueldo_diario;
+			var $hora_extra,$cod_empleado;
+			var $nombre_empleado;
+			
+			$cod_empleado = prompt('Ingrese el codigo del Empleado');
+			$nombre_empleado = prompt('Ingrese el nombre del Empleado');
+			$hora_extra = prompt('Ingrese las horas Extra');
+		
+			$sueldo_diario = 125.50*8;
+			$sueldo_base_semanal = $sueldo_diario*7;
+			$sueldo_extra = 125.50*$hora_extra*2;
+			$impuesto_renta = $sueldo_base_semanal*0.003;
+			$impuesto_IMSS = $sueldo_base_semanal*0.047;
+			
+			$sueldo_semanal = $sueldo_base_semanal+$sueldo_extra-$impuesto_renta-$impuesto_IMSS;
+			
+			$("#cod_empleado").html($cod_empleado);
+			$("#nombre_empleado").html($nombre_empleado);
+			$("#hora_extra").html($hora_extra);
+			$("#resultado").html('El sueldo del empleado '+$cod_empleado+' '+$nombre_empleado+' es: '+$sueldo_semanal);
+			
+		});
+	</script>
+	</body>
+</html>
