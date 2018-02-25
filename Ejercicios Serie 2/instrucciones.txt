@@ -1,0 +1,12 @@
+Problem 1.- imprime en pantalla los primeros 50 numerls positivos en orden inverso
+
+Problem 2.- Calcular el factorial de 7
+
+
+Problem 3.- Pedir al usuario qué tabla quiere multiplicar. Pedir al usuario hasta que numero quiere multiplicar la tabla. Imprimir en pantalla la tabla de multiplicar con el siguiente formato de una tabla en forma de lista
+
+Por ejemp. Si usuario escribio que quiere multiplicar la tabla del 57 y quiere multiplicar la tabla hasta el numero 4. El resultado que se tendrá que ver en pantalla es;
+
+57x1=57
+57x2=114
+57x3=171
