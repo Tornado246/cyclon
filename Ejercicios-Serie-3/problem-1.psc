@@ -43,6 +43,9 @@ Proceso serie3
 						Repetir 
 							Escribir "Ingrese la edad del trabajador ",Ctrab+1," (Para detener ingrese 0)";
 							Leer ETrab;
+							Si ((ETrab>edadMax O ETrab<edadMin) Y ETrab <> 0)	 Entonces
+								Escribir "Edad ingresada no corresponde, el rango valido es entre ",edadMin," y ",edadMax," años";
+							FinSi
 						Hasta Que no ((ETrab>edadMax O ETrab<edadMin) Y ETrab <> 0)	
 						Si ETrab!=0 Entonces
 							Si ETrab<22 Entonces

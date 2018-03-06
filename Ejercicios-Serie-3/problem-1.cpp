@@ -47,6 +47,9 @@ int main()
 						do{
 							printf("Ingrese la edad del trabajador %d (Para detener ingrese 0)\n",Ctrab+1);
 							scanf("%d",&ETrab);		
+							if((ETrab>edadMax || ETrab<edadMin) && ETrab != 0){
+								printf("Edad ingresada no corresponde, el rango valido es entre %d y %d a%cos\n",edadMin,edadMax,-92);
+							}
 						}while((ETrab>edadMax || ETrab<edadMin) && ETrab != 0);
 						if(ETrab!=0){
 							if(ETrab<22){
