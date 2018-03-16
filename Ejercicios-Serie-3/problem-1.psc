@@ -1,60 +1,70 @@
-Proceso serie4
-	Definir veces,i,x,aux Como Entero;
+Proceso serie3
 	Definir opcion Como Entero;
+	Definir empresaName,empresaAddress, empresaRubro Como Caracter;
 	Definir salir Como Caracter;
-	
-	Escribir("Ingrese la cantidad valores enteros va a capturar");
-	Leer veces;
-	
-	Definir arreglo,ordenado como Entero;
-	Dimension arreglo[veces],ordenado[veces];
-	
+	empresaName = "";
+	empresaAddress = "";
+	empresaRubro = "";
+	definir ETrab,Ctrab,tJoven,tMaduro,tMayor,edadMin,edadMax Como Entero;
 	Definir continuar como logico;
-	continuar <- Verdadero;
+	edadMin = 18; 
+	edadMax = 65;
+	continuar = Verdadero;
 	Repetir
 		Escribir("Elige la opcion deseada");
-		Escribir("   1. Capturar valores");
-		Escribir("   2. Ordenar valores");
-		Escribir("   3. imprimir valores originales");
-		Escribir("   4. imprimir valores ordenados");
-		Escribir("   5. Salir");
+		Escribir("   1. Captura datos de la empresa");
+		Escribir("   2. Imprimir datos de la empresa");
+		Escribir("   3. Captura las edades de los empleados");
+		Escribir("   4. Salir");
 		Leer opcion;
-		Si opcion>5 || opcion<1 Entonces
+		Si opcion>4 || opcion<1 Entonces
 			Escribir("Opción ingresada no es valida\n");
 		Sino
 			Segun opcion Hacer
 				1:
-					//obtener los numeros
-					Para i<-0 Hasta veces-1 Con Paso 1 Hacer
-						Escribir "Ingresa Entero ",(i+1)," : ";
-						Leer arreglo[i];
-						//voy copiando en arreglo para ordenar luego
-						ordenado[i] <- arreglo[i];
-					FinPara
+					//obtener la información definida para la empresa
+					Escribir("Ingresa nombre de la empresa");
+					Leer empresaName;
+					Escribir("Ingresa direccion de la empresa");
+					Leer empresaAddress;
+					Escribir("Ingresa rubro de la empresa");
+					Leer empresaRubro;
 				2:
-					//ordenar metodo burbuja (simple)
-					Para i<-0 Hasta veces-2 Con Paso 1 Hacer
-						Para x<-i+1 Hasta veces-1 Con Paso 1 Hacer
-							Si ordenado[i]>ordenado[x] Entonces
-								aux <- ordenado[i];
-								ordenado[i] <- ordenado[x];
-								ordenado[x] <- aux;
-							FinSi
-						FinPara
-					FinPara
-					
-				    Escribir "Se ha ordenado correctamente el arreglo";
+					//imprimir la información definida para la empresa
+					Escribir "Nombre de la Empresa       : ",empresaName;
+					Escribir "Direccion de la Empresa    : ",empresaAddress;
+					Escribir "Rubro de la Empresa        : ",empresaRubro;
 				3:
-					//imprimir origina
-					Para i<-0 Hasta veces-1 Con Paso 1 Hacer
-						Escribir "Entero [",(i+1),"] : ",arreglo[i];
-					FinPara
-	
-				4:
-					//imprimir ordenado
-					Para i<-0 Hasta veces-1 Con Paso 1 Hacer
-						Escribir "Entero [",(i+1),"] : ",ordenado[i];
-					FinPara
+					Ctrab = 0;
+					tJoven = 0;
+					tMaduro = 0;
+					tMayor = 0;
+					Repetir
+						Repetir 
+							Escribir "Ingrese la edad del trabajador ",Ctrab+1," (Para detener ingrese 0)";
+							Leer ETrab;
+							Si ((ETrab>edadMax O ETrab<edadMin) Y ETrab <> 0)	 Entonces
+								Escribir "Edad ingresada no corresponde, el rango valido es entre ",edadMin," y ",edadMax," años";
+							FinSi
+						Hasta Que no ((ETrab>edadMax O ETrab<edadMin) Y ETrab <> 0)	
+						Si ETrab!=0 Entonces
+							Si ETrab<22 Entonces
+								tJoven = tJoven + 1;
+							Sino
+								Si ETrab<=50 Entonces
+									tMaduro = tMaduro + 1;
+								Sino
+									tMayor = tMayor + 1;
+								FinSi
+							FinSi
+							Ctrab = Ctrab + 1;
+						FinSi
+					Hasta Que no (ETrab!=0)
+
+					
+					Escribir "Cantidad de trabajadores Menores (entre ",edadMin," y 21 añcos) es: ",tJoven;
+					Escribir "Cantidad de trabajadores Maduros (entre 22 y 50 años) es: ",tMaduro;
+					Escribir "Cantidad de trabajadores Mayores (entre 51 y ",edadMax," años) es: ", tMayor;
 				De Otro Modo:
 					Escribir "Esta seguro que desea salir? (s para Confirmar, otra para Cancelar)";
 					Leer salir;
